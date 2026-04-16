@@ -1,0 +1,50 @@
+# supabase/config.toml
+# Supabase project configuration
+
+[api]
+port = 54321
+schemas = ["public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+major_version = 17
+port = 53325
+
+
+
+[studio]
+port = 54323
+
+[inbucket]
+port = 54324
+
+[storage]
+file_size_limit = "50MiB"
+
+[auth]
+site_url = "http://localhost:5173"
+additional_redirect_urls = ["https://your-app.vercel.app"]
+jwt_expiry = 3600
+enable_signup = true
+
+[auth.email]
+enable_signup = true
+double_confirm_changes = true
+enable_confirmations = false
+
+[[auth.mfa.totp]]
+enroll_enabled = false
+verify_enabled  = false
+
+[functions.members]
+verify_jwt = false   # set to true once you add auth
+
+[functions.payments]
+verify_jwt = false
+
+[functions.send-sms]
+verify_jwt = false
+
+[functions.notify-due]
+verify_jwt = false
